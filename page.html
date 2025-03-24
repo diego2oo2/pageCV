@@ -1,1 +1,441 @@
-<h1>Hoja de Vida - Page</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Vida CV - Diego Joel Herrera</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #415371;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            max-width: 1250px;
+            width: 90%;
+            height: 600px;
+            background: #333;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .contact-info, .links {
+            margin-top: 5px;
+            text-align: left;
+        }
+        .contact-info a, .links a {
+            color: rgb(32, 37, 51);
+            text-decoration: none;
+            display: block;
+            margin-top: 2px;
+        }
+        .contact-info a:hover, .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contenido principal */
+        .main-content {
+            width: 70%;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        .title {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .bio h2, .interests h2, .portfolio h2 {
+            border-bottom: 2px solid #7b8996;
+            padding-bottom: 5px;
+            margin-bottom: 3px;
+            color: #426f9e;
+        }
+        .bio p, .interests ul {
+            font-size: 16px;
+            color: #f7f2f2;
+        }
+        .interests ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sidebar {
+            background: #c5cbd5;
+            padding: 10px;
+            width: 25%;
+            text-align: center;
+            -moz-box-align: center;
+            box-shadow: 5px 0 10px rgba(0, 0, 0, 0.4);
+            border-radius: 10px 0 0 10px;
+            height: 65%; /* Altura reducida */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position:static;
+            transform: translate(10px, 10px);
+        }
+        .sidebar img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            align-self: right;
+            border: 1px solid rgb(15, 15, 31);
+            margin-bottom: 2px;
+        }
+        .sidebar h2 {
+            font-size: 22px;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            position: absolute;
+            bottom: 20px;
+        }
+        .nav-buttons button {
+            padding: 13px;
+            border: none;
+            background: #187489;
+            color: rgb(19, 18, 18);
+            font-size: 15px;
+            box-shadow: 5px 0 10px rgba(0, 0, 0, 0.4);
+            cursor: progress;
+            border-radius: 0;
+            transition: all 0.5s ease;
+            width: 40%;
+            margin: 0;
+            text-align: center;
+            transform: translate(150px, 10px);
+        }
+        .nav-buttons button:first-child {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .nav-buttons button:last-child {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .nav-buttons button:hover, .nav-buttons button.active {
+            background: #8f73a6;
+            transform: scale(1.05);
+            transform: translate(160px, 10px);
+        }
+        .content {
+            padding: 40px;
+            width: 75%;
+            background: #252525;
+            border-radius: 0 10px 10px 0;
+            text-align: justify
+        }
+        .content1 {
+            padding: 15px;
+            width: 71%;
+            background: #7c7373;
+            border-radius: 0 10px 10px 0;
+            text-align: justify;
+            transform:translate(-20px, -30px);
+            font-size: 13px;
+            height: -10%;
+            
+        }
+        .info span {
+            display: block;
+            background: #9e9e9e;
+            padding: 12px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        /* Portafolio */
+        .portfolio .tabs {
+            display: flex;
+            justify-content: space-around;
+            background: #34495e;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .portfolio .tabs div {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        .portfolio .tabs div:hover {
+            background: #1abc9c;
+        }
+        .portfolio .tabs div.active {
+            background: #e74c3c;
+            font-weight: bold;
+
+        }
+
+        .data .tabs {
+            display: flex;
+            justify-content: space-around;
+            background: #34495e;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            transform:translate(580px, -580px);
+            width: 25%;
+        }
+        .data .tabs div {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+            
+        }
+        .data .tabs div:hover {
+            background: #1abc9c;
+        }
+        .data .tabs div.active {
+            background: #e74c3c;
+            font-weight: bold;
+
+        }
+        .tab-content {
+            display:block;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 5px;
+            margin-top: 10px;
+            color: #612828;
+        }
+        .tab-content.active {
+            display:none;
+        }
+
+        
+        /* Botones de años */
+        .year {
+            background: #bdc3c7;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .year:hover {
+            background: #95a5a6;
+        }
+        .year-content {
+            display: none;
+            padding: 5px 15px;
+            background: white;
+            border-left: 4px solid #2c3e50;
+            margin-top: 5px;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+
+        <!-- Barra lateral -->
+        <aside class="sidebar">
+            <img src="C:\Users\DIEGO\Downloads\IMG_5357.jpg" alt="Foto de perfil" class="profile-pic">
+            <h2>Diego Joel Herrera</h2>
+                <div class="contact-info">
+                    <h2>DATOS DE CONTACTO</h2>
+                    <p><strong>Correo:</strong> <a href="diegojoelherrera2002@gmail.com">diegojoelherrera2002@gmail.com</a></p>
+                    <p><strong>Teléfono:</strong> <a href="tel:+593992684960">+593 992 684 960</a></p>
+                </div>
+        </aside>
+        <div class="nav-buttons">
+            <button onclick="showSection('about')">Biografía</button>
+            <button onclick="showSection('education')">Formación</button>
+            <button onclick="showSection('projects')">Proyectos</button>
+        </div>
+        <main class="content">
+            <section id="about">
+                <div class="content1">
+                    <h2>BIOGRAFÍA</h2>
+                    <p>Ingeniero en Logística y Transporte por la Universidad Politécnica Estatal del Carchi, con amplia formación en planificación, gestión y control de la Cadena de Suministro en entornos empresariales dinámicos, junto a conocimientos para el desarrollo de sistemas que optimizan los procesos operativos.</p>
+                    <p>Con habilidades en deep learning y machine learning, aplicadas al desarrollo de modelos de inteligencia artificial para la implementación en áreas de aprovisionamiento, almacenamiento, producción y distribución, a fin optimizar recursos y  garantizar el cumplimiento de estándares de calidad y la satisfacción del cliente para la industria.</p>
+                    <p>Comprometido con la innovación y el uso de tecnologías emergentes, proactivo y orientado a resultados, con gran capacidad de adaptación y aprendizaje continuo. Siempre mostrando responsiabilidad, organización y habilidad para resolver problemas de manera eficiente. Capacidad para trabajar en equipo y tomar decisiones bajo presión manteniendo siempre un enfoque en la calidad y la mejora continua. Además, con habilidaddes de comunicación y liderazgo, fomentando un ambiente colaborativo y productivo.</p>
+                </div>
+                <div class="interests">
+                    <h2>Intereses Profesionales</h2>
+                    <ul>
+                        <li>Inteligencia Artificial</li>
+                        <li>Deep learning</li>
+                        <li>Machine learning</li>
+                        <li>Análisis de datos</li>
+                        <li>Logística y cadena de suministro</li>
+                        <li>Industria 4.0</li>
+                        <li>Simulación y optimización</li>
+                    </ul>
+                </div>
+                <div class="data">
+                    <div class="tabs">
+                        <div class="links"> 
+                            <h2> Links Externos</h2>
+                            <div class="tab-btn" onclick="showTab('hojavida', this)">
+                                <a href="https://upecedu-my.sharepoint.com/:b:/g/personal/diego_herrera_upec_edu_ec/ER58fLtJVBpNtcd_lGCtQSQB1DvWiM2YRfB-2emCw4g02w?e=euj7uq">Hoja de Vida</a></div>
+                            <div class="tab-btn" onclick="showTab('linkedln', this)">
+                                <a href="www.linkedin.com/in/diego-herrera-b50742355"><i class="fas fa-file-pdf"></i>LinkedIn</a></div>
+                            <div class="tab-btn" onclick="showTab('orcid', this)">
+                                <a href="https://orcid.org/0009-0006-8744-2267">Orcid</a></div>
+                        </div>
+                </div>
+            </section>
+            <section id="education" style="display: none;">
+                <div class="portfolio">
+                    <h2>FORMACIÓN</h2>
+                    <div class="tabs">
+                        <div class="tab-btn active" onclick="showTab('estudios', this)">Estudios</div>
+                        <div class="tab-btn" onclick="showTab('cursos', this)">Cursos</div>
+                        <div class="tab-btn" onclick="showTab('experiencia', this)">Experiencia</div>
+                    </div>
+            
+                    <div id="estudios" class="tab-content active">
+                        <div class="year" onclick="toggleYear('y2025')">2025</div> 
+                        <div id="y2025" class="year-content">
+                            <h2>Ingeniería en Logística y Transporte</h2>
+                            <p>Universidad Politécnica Estatal del Carchi. Facultad de Comercio Internacional, Integración, Administración y Economía Empresarial</p>
+                        </div>
+                    </div>
+            
+                    <div id="cursos" class="tab-content" style="display: none;">
+                        <div class="year" onclick="toggleYear('y2023')">2023</div> 
+                        <div id="y2023" class="year-content">
+                            <h2>Inglés. Suficiencia B1</h2>
+                            <p>Universidad Politécnica Estatal del Carchi</p>
+                            <h2>Programa de Educación Financiera</h2>
+                            <p>23/04 - 05/05 Banco de Desarrollo del Ecuador. Duración: 10 horas</p>  
+                        </div> 
+                        <div class="year" onclick="toggleYear('y2024')">2024</div> 
+                        <div id="y2024" class="year-content">
+                            <h2>Fundamentos de IA con IBM SkillsBuild</h2>
+                            <p>26/11 - 08/12 Universidad Libre. Duración: 10 horas</p>
+                        </div>  
+                        <div class="year" onclick="toggleYear('a2025')">2025</div> 
+                        <div id="a2025" class="year-content">
+                            <h2>Formación de líderes en Programación y Tecnología</h2>
+                            <p>05 - 03 de Marzo. Universidad Politécnica Estatal del Carchi. Duración: 40 horas</p>
+                            <h2>Inteligencia Artificial y Deep Learning desde cero con Python</h2>
+                            <p>11/03. Udemy. Duración: 27 horas</p>
+                        </div> 
+                    </div>
+            
+                    <div id="experiencia" class="tab-content" style="display: none;">
+                        <div class="year" onclick="toggleYear('y2022')">2022</div>
+                        <div id="y2022" class="year-content">
+                            <h2>Encomiendas Ecuador S.A.</h2>
+                            <p>03/2023 - 06/2023</p>
+                            <p>Encargado de gestionar y coordinar pedidos de encomiendas, logrando un flujo eficiente en el registro y seguimiento de envíos. Comprometido en la optimización de procesos, como la base de datos, obteniendo mayor precisión de la información y planificando rutas de recolección para optimizar tiempos y recursos de transporte.</p>
+                        </div>   
+                    </div>
+                </div>
+            </section>
+                
+            <section id="projects" style="display: none;">
+                <div class="portfolio">
+                    <h2>PROYECTOS</h2>
+                    <div class="tabs">
+                        <div class="tab-btn active" onclick="showTab('publicacion', this)">Publicaciones</div>
+                        <div class="tab-btn" onclick="showTab('prototipo', this)">Prototipos</div>
+                        <div class="tab-btn" onclick="showTab('colaboracion', this)">Colaboraciones</div>
+                    </div>
+            
+                    <div id="publicacion" class="tab-content active">
+                        <div class="year" onclick="toggleYear('b2025')">2025</div> 
+                        <div id="b2025" class="year-content">
+                            <p>(Tesis) Herrera, D. (2025). Diseño de un programa para el pesaje de vehículos de carga pesada a partir de imágenes con Inteligencia Artificial [Trabajo de Integración Curricular]. Universidad Politécnica Estatal del Carchi</p>
+                            <p> Programa de Inteligencia Ariticial para la estimación del peso de vehículos de carga pesada. (Artículo para publicar en revistas de IA)</p>
+                        </div>
+                    </div>
+            
+                    <div id="prototipo" class="tab-content" style="display: none;">
+                        <div class="year" onclick="toggleYear('b2023')">2025</div> 
+                        <div id="b2023" class="year-content">
+                            <div class="links">
+                                <p>Diseño de un Programa para el pesaje de vehículos de carga con IA.</p><a href="https://github.com/diego2oo2">Directorio</a>
+                                <p>Diseño de un Programa para el reconocimiento de placas de vehículos con IA</p><a href="https://github.com/diego2oo2">Directorio</a>
+                                <p>Diseño de un programa para la clasificación de vehículos de carga con IA</p><a href="https://github.com/diego2oo2">Directorio</a>
+                                <p>Prototipo de programa para la gestión de inventario en tiemporeal para almacenes distribuidores</p><a href="https://github.com/diego2oo2">Directorio</a>
+                            </div>
+                        </div> 
+                    </div>
+            
+                    <div id="colaboracion" class="tab-content" style="display: none;">
+                        <div class="year" onclick="toggleYear('c2024')">2024</div>
+                        <div id="c2024" class="year-content">
+                            <p>Diseño de rutas para el mejoramiento del servicio de transporte comercial, modalidad escolar
+                                e institucional con las operadoras domiciliadas en la ciudad de Tulcán. Duration: 114 hours.
+                                Proyecto de vinculación con la sociedad.</p>
+                        </div>
+                        <div class="year" onclick="toggleYear('c2025')">2025</div>
+                        <div id="c2025" class="year-content">
+                            <p>Colaboración en proyecto de diseño de software para resolución de problemas en logística y transporte.</p><a href="https://github.com/diego2oo2">Directorio</a>
+                            <p>Participación en proyecto de la Universidad Politécnica Estatal del Carchi para el diseño de un recorrido virutal, mediante captura de imágenes con cámara 360° por el campus Universitario Duration: 40 hours. Link: (Link vinculado con la publicación del recorrido virutal de la Universidad)</p>
+                        </div>   
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function showSection(section) {
+            document.querySelectorAll('.content section').forEach(sec => {
+                sec.style.display = 'none';
+            });
+            document.getElementById(section).style.display = 'block';
+            document.querySelectorAll('.nav-buttons button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[onclick="showSection('${section}')"]`).classList.add('active');
+        }
+        window.onload = () => showSection('about');
+
+        function showTab(tabName, element) {
+        // Ocultar todas las pestañas
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.style.display = 'none';
+            tab.classList.remove('active');
+        });
+
+        // Mostrar la pestaña seleccionada
+        let selectedTab = document.getElementById(tabName);
+        selectedTab.style.display = 'block';
+        selectedTab.classList.add('active');
+
+        // Quitar la clase "active" de todos los botones
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        // Agregar la clase "active" al botón seleccionado
+        element.classList.add('active');
+        }
+            
+        function toggleYear(yearId) {
+        let yearContent = document.getElementById(yearId);
+        yearContent.style.display = yearContent.style.display === 'block' ? 'none' : 'block';
+        }
+
+    </script>
+
+</body>
+</html>
